@@ -1,62 +1,37 @@
-const getUsersWithFriend = (users, friendName) => {
-  const userWithFriend = users.filter((user) =>
-    user.friends.includes(friendName)
-  );
-  return userWithFriend;
-};
-const allUsers = [
+const images = [
   {
-    name: "Moore Hensley",
-    friends: ["Sharron Pace"],
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
   },
   {
-    name: "Sharlene Bush",
-    friends: ["Briana Decker", "Sharron Pace"],
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
-    name: "Ross Vazquez",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
   },
   {
-    name: "Elma Head",
-    friends: ["Goldie Gentry", "Aisha Tran"],
+    url: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+    alt: "Alpine Spring Meadows",
   },
   {
-    name: "Carey Barr",
-    friends: ["Jordan Sampson", "Eddie Strong"],
+    url: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+    alt: "Nature Landscape",
   },
   {
-    name: "Blackburn Dotson",
-    friends: ["Jacklyn Lucas", "Linda Chapman"],
-  },
-  {
-    name: "Sheree Anthony",
-    friends: ["Goldie Gentry", "Briana Decker"],
+    url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+    alt: "Lighthouse Coast Sea",
   },
 ];
 
-console.log(getUsersWithFriend(allUsers, "Briana Decker"));
-// [
-//   {
-//     name: "Sharlene Bush",
-//     friends: ["Briana Decker", "Sharron Pace"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
+const gallery = document.querySelector(".gallery");
 
-console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
-// [
-//   {
-//     name: "Elma Head",
-//     friends: ["Goldie Gentry", "Aisha Tran"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
+const galleryItems = images
+  .map(({ url, alt }) => {
+    return `<li><img src="${url}", alt="${alt}"
+  width="300"</li>`;
+  })
+  .join("");
 
-console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // []
+gallery.insertAdjacentHTML("beforeend", galleryItems);
