@@ -12,27 +12,24 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-let width = 30;
-let height = 30;
-
 function createBoxes(amount) {
-  for (let i = 0; i < amount; i++) {
-    function getRandomHexColor() {
-      return `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, 0)}`;
-    }
+  let width = 30;
+  let height = 30;
+  const fragment = document.createDocumentFragment(); // Створюємо фрагмент
 
+  for (let i = 0; i < amount; i++) {
     const color = getRandomHexColor();
 
     const box = document.createElement("div");
     box.style.width = `${width}px`;
     box.style.height = `${height}px`;
     box.style.backgroundColor = color;
-    boxesContainer.append(box);
-    width = width + 10;
-    height = height + 10;
+    fragment.appendChild(box); // Додаємо блок до фрагмента
+    width += 10;
+    height += 10;
   }
+
+  boxesContainer.appendChild(fragment); // Додаємо всі блоки до контейнера однією операцією
 }
 
 function create() {
