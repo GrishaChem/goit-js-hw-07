@@ -35,6 +35,7 @@ function createBoxes(amount) {
 function create() {
   const amount = input.value;
   if (amount > 0 && amount <= 100) {
+    boxesContainer.innerHTML = "";
     createBoxes(amount);
     input.value = "";
   }

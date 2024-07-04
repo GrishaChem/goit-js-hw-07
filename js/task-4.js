@@ -7,9 +7,13 @@ function handleSubmit(event) {
 
   const elements = event.currentTarget.elements;
 
+  const email = elements.email.value.trim();
+
+  const password = elements.password.value.trim();
+
   const info = {
-    email: elements.email.value,
-    password: elements.email.value,
+    email: email,
+    password: password,
   };
 
   if (elements.email.value === "" || elements.password.value === "") {
